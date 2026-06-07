@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }} - {{ shop.name }}</title>
+  {{ content_for_header }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  {{ 'palm.css' | asset_url | stylesheet_tag }}
+</head>
+<body>
+  <div class="announce-bar">🌴 &nbsp; Palm Club Collection — UAE / KSA &nbsp;·&nbsp; Notify me when we launch</div>
+  <nav class="site-nav">
+    <a href="{{ routes.root_url }}" class="nav-logo">🌴 palm</a>
+    <ul class="nav-links">
+      <li><a href="{{ routes.root_url }}">Home</a></li>
+      <li><a href="/pages/about">The Club</a></li>
+      <li><a href="/pages/contact">Contact</a></li>
+    </ul>
+    <div class="nav-right"><a href="#notify">Notify Me</a></div>
+    <button class="nav-hamburger" onclick="this.nextElementSibling;document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+  <main role="main">
+    {{ content_for_layout }}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">🌴 palm</div>
+        <p>Elevated essentials for those who move through the world with quiet confidence.</p>
+        <div style="margin-top:24px;">
+          <p style="font-size:11px;letter-spacing:1px;opacity:.55;margin-bottom:10px;">Join the waitlist</p>
+          <div style="display:flex;">
+            <input type="email" placeholder="your@email.com" style="flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-right:none;color:#f5f0e8;padding:12px 16px;font-size:12px;font-family:Montserrat,sans-serif;outline:none;">
+            <button onclick="showToast('You\'re on the list 🌴')" style="background:#c9b99a;color:#0a0a0a;border:none;padding:12px 20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="/pages/about">The Club</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="/pages/about">About Palm</a></li>
+          <li><a href="/pages/contact">Get in Touch</a></li>
+          <li><a href="{{ shop.privacy_policy.url }}">Privacy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">TikTok</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} Palm. All rights reserved.</span>
+      <span>T.P.C. &mdash; The Palm Club</span>
+    </div>
+  </footer>
+  <div class="toast" id="toast"></div>
+  {{ 'palm.js' | asset_url | script_tag }}
+</body>
+</html>

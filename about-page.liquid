@@ -1,0 +1,80 @@
+<style>
+.about-hero{min-height:55vh;background:var(--black);display:flex;align-items:flex-end;padding:80px 64px;position:relative;overflow:hidden;}
+.about-hero-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:360px;opacity:.04;pointer-events:none;font-family:"Playfair Display",serif;font-weight:900;color:white;line-height:1;}
+.about-hero-content{position:relative;color:var(--cream);}
+.about-hero-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.about-hero-label::before{content:"";width:32px;height:1px;background:var(--accent);}
+.about-hero-title{font-family:"Playfair Display",serif;font-size:clamp(48px,7vw,90px);font-weight:900;line-height:.92;letter-spacing:-3px;}
+.about-hero-title em{font-style:italic;font-weight:400;color:var(--accent);}
+.about-body{padding:100px 64px;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+.about-sidebar{position:sticky;top:120px;}
+.about-sidebar-logo{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin-bottom:20px;}
+.about-sidebar-big{font-family:"Playfair Display",serif;font-size:72px;font-weight:900;letter-spacing:-4px;line-height:1;margin-bottom:40px;}
+.about-stat{border-top:1px solid rgba(0,0,0,.12);padding:24px 0;}
+.about-stat-num{font-family:"Playfair Display",serif;font-size:40px;font-weight:900;letter-spacing:-2px;}
+.about-stat-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);margin-top:4px;}
+.about-content h2{font-family:"Playfair Display",serif;font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-2px;line-height:1.05;margin-bottom:32px;}
+.about-content h2 em{font-style:italic;font-weight:400;color:var(--accent);}
+.about-content p{font-family:"Cormorant Garamond",serif;font-size:21px;font-weight:300;line-height:1.8;color:#444;margin-bottom:24px;}
+.about-content blockquote{border-left:3px solid var(--accent);padding:24px 32px;margin:40px 0;background:var(--cream);}
+.about-content blockquote p{font-family:"Playfair Display",serif;font-size:24px;font-style:italic;font-weight:400;color:var(--black);margin:0;}
+.about-values{padding:80px 64px;background:var(--sand);}
+.about-values-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.about-values-title{font-family:"Playfair Display",serif;font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-2px;margin-bottom:60px;}
+.about-values-title em{font-style:italic;font-weight:400;}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+.value-card{background:var(--warm-white);padding:48px 40px;}
+.value-icon{font-size:32px;margin-bottom:20px;}
+.value-name{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;margin-bottom:12px;}
+.value-desc{font-family:"Cormorant Garamond",serif;font-size:17px;font-weight:300;line-height:1.7;color:var(--text-muted);}
+.about-cta{background:var(--black);color:var(--cream);padding:100px 64px;text-align:center;}
+.about-cta h2{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:20px;}
+.about-cta h2 em{font-style:italic;font-weight:400;color:var(--accent);}
+.about-cta p{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:300;opacity:.65;max-width:500px;margin:0 auto 40px;line-height:1.7;}
+@media(max-width:900px){
+  .about-hero{padding:60px 24px;min-height:50vh;}
+  .about-body{grid-template-columns:1fr;padding:60px 24px;gap:40px;}
+  .about-sidebar{position:static;}
+  .about-values{padding:60px 24px;}
+  .values-grid{grid-template-columns:1fr;}
+  .about-cta{padding:80px 24px;}
+}
+</style>
+<section class="about-hero">
+  <div class="about-hero-bg">🌴</div>
+  <div class="about-hero-content">
+    <div class="about-hero-label">The Palm Club</div>
+    <h1 class="about-hero-title">Built for the<br><em>quiet ones.</em></h1>
+  </div>
+</section>
+<section class="about-body">
+  <div class="about-sidebar">
+    <div class="about-sidebar-logo">🌴 palm</div>
+    <div class="about-sidebar-big">palm</div>
+    <div class="about-stat"><div class="about-stat-num">2026</div><div class="about-stat-label">Founded</div></div>
+    <div class="about-stat"><div class="about-stat-num">UAE</div><div class="about-stat-label">Born &amp; Based</div></div>
+    <div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-label">Launch Pieces</div></div>
+  </div>
+  <div class="about-content">
+    <h2>A brand born from<br><em>simplicity.</em></h2>
+    <p>Palm was born from a simple idea: the best clothing says everything without saying a word. No oversized logos, no noise, no performance. Just clean lines, premium fabrics, and a palm tree — the oldest symbol of this land.</p>
+    <p>We are a UAE-born label for people who understand that confidence is quiet. The kind of person who doesn't need a brand name across their chest to be noticed. They just are.</p>
+    <blockquote><p>"Rooted in the Gulf. Made for the world."</p></blockquote>
+    <p>The Palm Club Collection is our first chapter — three pieces designed to work together, apart, dressed up or down. Launching across UAE and KSA first.</p>
+  </div>
+</section>
+<section class="about-values">
+  <div class="about-values-label">What We Stand For</div>
+  <h2 class="about-values-title">The Palm <em>Principles</em></h2>
+  <div class="values-grid">
+    <div class="value-card"><div class="value-icon">🌴</div><div class="value-name">Rooted</div><p class="value-desc">Everything we make is inspired by the UAE. The heat, the light, the quiet ambition of this place. We're not imitating anyone.</p></div>
+    <div class="value-card"><div class="value-icon">◻️</div><div class="value-name">Minimal</div><p class="value-desc">We believe in restraint. Every detail is intentional. Simplicity is the hardest thing to achieve — and the most lasting.</p></div>
+    <div class="value-card"><div class="value-icon">✦</div><div class="value-name">Premium</div><p class="value-desc">Quality over quantity, always. Three pieces done properly. The Palm Club Collection was built to last.</p></div>
+  </div>
+</section>
+<section class="about-cta">
+  <h2>Join the<br><em>Club.</em></h2>
+  <p>Be the first to know when Palm Club Collection drops in UAE and KSA.</p>
+  <a href="/" class="btn-primary-cream">Join the Waitlist</a>
+</section>
+{% schema %}{"name":"About Page","settings":[],"presets":[{"name":"About Page"}]}{% endschema %}

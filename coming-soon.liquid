@@ -1,0 +1,210 @@
+<style>
+.coming-soon-wrap{min-height:calc(100vh - 110px);display:grid;grid-template-columns:1fr 1fr;}
+.cs-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px;}
+.cs-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+.cs-tag::before{content:"";width:32px;height:1px;background:var(--accent);}
+.cs-title{font-family:"Playfair Display",serif;font-size:clamp(52px,7vw,90px);font-weight:900;line-height:.92;letter-spacing:-3px;margin-bottom:32px;}
+.cs-title em{font-style:italic;font-weight:400;color:var(--accent);display:block;}
+.cs-body{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:300;color:var(--text-muted);line-height:1.7;max-width:380px;margin-bottom:48px;}
+.cs-form-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:600;}
+.cs-form{display:flex;flex-direction:column;gap:12px;max-width:400px;margin-bottom:40px;}
+.cs-form-row{display:flex;}
+.cs-form input{width:100%;background:transparent;border:1px solid rgba(0,0,0,.2);color:var(--black);padding:14px 20px;font-size:13px;font-family:"Montserrat",sans-serif;outline:none;transition:border-color .2s;}
+.cs-form input:focus{border-color:var(--black);}
+.cs-form input::placeholder{opacity:.4;font-size:12px;}
+.cs-form-row input{flex:1;border-right:none;}
+.cs-form-row button{background:var(--black);color:var(--cream);border:none;padding:14px 28px;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap;}
+.cs-form-row button:hover{background:var(--accent);color:var(--black);}
+.cs-privacy{font-size:10px;opacity:.4;letter-spacing:1px;}
+.cs-socials{display:flex;gap:20px;align-items:center;}
+.cs-socials span{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.4;}
+.cs-socials a{text-decoration:none;color:var(--black);font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.5;transition:opacity .2s;}
+.cs-socials a:hover{opacity:1;}
+.cs-right{background:var(--black);position:relative;overflow:hidden;}
+.cs-right img{width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.82;display:block;}
+.cs-right-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.3) 0%,transparent 60%);}
+.cs-right-badge{position:absolute;bottom:40px;right:40px;text-align:right;color:var(--cream);}
+.cs-right-badge-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.6;margin-bottom:4px;}
+.cs-right-badge-value{font-family:"Playfair Display",serif;font-size:64px;font-weight:900;letter-spacing:-3px;line-height:1;}
+.cs-preview{padding:100px 64px;background:var(--warm-white);}
+.cs-preview-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+.cs-preview-title{font-family:"Playfair Display",serif;font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-2px;line-height:1;margin-bottom:60px;}
+.cs-preview-title em{font-style:italic;font-weight:400;}
+.cs-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:48px;}
+.cs-product-card{background:var(--cream);padding:40px 32px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;transition:background .3s;}
+.cs-product-card:hover{background:var(--sand);}
+.cs-product-emoji{font-size:64px;margin-bottom:8px;}
+.cs-product-name{font-family:"Playfair Display",serif;font-size:22px;font-weight:700;}
+.cs-product-sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);}
+.cs-product-price{font-size:16px;font-weight:600;margin-top:auto;padding-top:16px;border-top:1px solid rgba(0,0,0,.1);}
+.cs-product-colors{display:flex;gap:6px;margin-top:4px;}
+.cs-swatch{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15);}
+.cs-swatch.black{background:#0a0a0a;}
+.cs-swatch.cream{background:#f5f0e8;}
+.cs-swatch.navy{background:#1a2744;}
+.cs-swatch.olive{background:#5c6b45;}
+.cs-product-tag{position:absolute;top:20px;right:20px;background:var(--black);color:var(--cream);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 12px;font-weight:600;}
+.cs-preview-cta{text-align:center;padding-top:16px;}
+.cs-preview-cta p{font-family:"Cormorant Garamond",serif;font-size:18px;font-weight:300;color:var(--text-muted);margin-bottom:24px;}
+.cs-notify{background:var(--black);color:var(--cream);padding:100px 64px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.cs-notify-left h2{font-family:"Playfair Display",serif;font-size:clamp(36px,4vw,60px);font-weight:900;line-height:1;letter-spacing:-2px;margin-bottom:20px;}
+.cs-notify-left h2 em{font-style:italic;font-weight:400;color:var(--accent);}
+.cs-notify-left p{font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:300;line-height:1.7;opacity:.65;}
+.cs-notify-form{display:flex;flex-direction:column;gap:14px;}
+.cs-notify-form input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:var(--cream);padding:16px 20px;font-size:13px;font-family:"Montserrat",sans-serif;outline:none;transition:border-color .2s;}
+.cs-notify-form input:focus{border-color:var(--accent);}
+.cs-notify-form input::placeholder{opacity:.35;font-size:12px;}
+.cs-notify-form button{background:var(--accent);color:var(--black);border:none;padding:18px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:background .3s;}
+.cs-notify-form button:hover{background:var(--cream);}
+.cs-notify-note{font-size:10px;opacity:.35;letter-spacing:1px;}
+.cs-success{display:none;text-align:center;padding:40px 20px;}
+.cs-success.show{display:block;}
+.cs-success-icon{font-size:48px;margin-bottom:16px;}
+.cs-success h3{font-family:"Playfair Display",serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--cream);}
+.cs-success p{font-family:"Cormorant Garamond",serif;font-size:18px;opacity:.65;color:var(--cream);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.cs-left>*{animation:fadeUp .8s ease both;}
+.cs-left>*:nth-child(1){animation-delay:.05s;}
+.cs-left>*:nth-child(2){animation-delay:.2s;}
+.cs-left>*:nth-child(3){animation-delay:.35s;}
+.cs-left>*:nth-child(4){animation-delay:.45s;}
+.cs-left>*:nth-child(5){animation-delay:.55s;}
+.cs-left>*:nth-child(6){animation-delay:.65s;}
+@media(max-width:900px){
+  .coming-soon-wrap{grid-template-columns:1fr;}
+  .cs-right{min-height:50vh;}
+  .cs-left{padding:60px 28px;}
+  .cs-notify{grid-template-columns:1fr;padding:60px 28px;}
+  .cs-preview{padding:60px 28px;}
+  .cs-preview-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<section class="coming-soon-wrap">
+  <div class="cs-left">
+    <div class="cs-tag">UAE / KSA — SS26</div>
+    <h1 class="cs-title">Palm<br><em>Club.</em><br>Coming<br><em>Soon.</em></h1>
+    <p class="cs-body">Something quiet is coming. The Palm Club Collection — three essential pieces, built for those who don't need to be loud.</p>
+    <div class="cs-form-label">Be First to Know</div>
+    <form class="cs-form" id="hero-notify-form">
+      <input type="text" name="name" placeholder="Your name" required>
+      <div class="cs-form-row">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <button type="submit">Notify Me</button>
+      </div>
+      <p class="cs-privacy">No spam. Just the drop date. UAE &amp; KSA only.</p>
+    </form>
+    <div class="cs-socials">
+      <span>Follow</span>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+  </div>
+  <div class="cs-right">
+    {% if section.settings.hero_image != blank %}
+      <img src="{{ section.settings.hero_image | img_url: '1200x' }}" alt="Palm Club Collection">
+    {% else %}
+      <img src="{ img_src }" alt="Palm Club Collection">
+    {% endif %}
+    <div class="cs-right-overlay"></div>
+    <div class="cs-right-badge">
+      <div class="cs-right-badge-label">Collection</div>
+      <div class="cs-right-badge-value">SS26</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Palm Club</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">UAE / KSA</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">T.P.C.</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Elevated Essentials</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Available in More Colors</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Coming Soon</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Palm Club</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">UAE / KSA</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">T.P.C.</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Elevated Essentials</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Available in More Colors</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+    <span class="marquee-item">Coming Soon</span><span class="marquee-dot">&nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<section class="cs-preview">
+  <div class="cs-preview-label">Sneak Peek — T.P.C.</div>
+  <h2 class="cs-preview-title">The <em>Collection</em></h2>
+  <div class="cs-preview-grid">
+    <div class="cs-product-card">
+      <span class="cs-product-tag">Coming Soon</span>
+      <div class="cs-product-emoji">🧥</div>
+      <div class="cs-product-name">TPC Quarter Zip</div>
+      <div class="cs-product-sub">Palm Club Collection</div>
+      <div class="cs-product-price">AED 349</div>
+      <div class="cs-product-colors">
+        <div class="cs-swatch black"></div><div class="cs-swatch cream"></div><div class="cs-swatch navy"></div><div class="cs-swatch olive"></div>
+      </div>
+    </div>
+    <div class="cs-product-card">
+      <span class="cs-product-tag">Coming Soon</span>
+      <div class="cs-product-emoji">👕</div>
+      <div class="cs-product-name">TPC Polo Shirt</div>
+      <div class="cs-product-sub">Palm Club Collection</div>
+      <div class="cs-product-price">AED 249</div>
+      <div class="cs-product-colors">
+        <div class="cs-swatch black"></div><div class="cs-swatch cream"></div><div class="cs-swatch navy"></div>
+      </div>
+    </div>
+    <div class="cs-product-card">
+      <span class="cs-product-tag">Coming Soon</span>
+      <div class="cs-product-emoji">🧢</div>
+      <div class="cs-product-name">TPC Dad Cap</div>
+      <div class="cs-product-sub">Palm Club Collection</div>
+      <div class="cs-product-price">AED 149</div>
+      <div class="cs-product-colors">
+        <div class="cs-swatch cream"></div><div class="cs-swatch black"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cs-preview-cta">
+    <p>Join the waitlist to get early access and exclusive launch pricing.</p>
+    <a href="#notify" class="btn-primary">Join the Waitlist</a>
+  </div>
+</section>
+
+<section class="cs-notify" id="notify">
+  <div class="cs-notify-left">
+    <h2>Don't miss<br><em>the drop.</em></h2>
+    <p>Leave your details and we'll reach out the moment Palm Club Collection goes live. UAE &amp; KSA first.</p>
+  </div>
+  <div>
+    <div id="notify-form-wrap">
+      <form class="cs-notify-form" id="notify-form">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <input type="tel" name="phone" placeholder="WhatsApp number (optional)">
+        <button type="submit">Notify Me When It Drops</button>
+        <p class="cs-notify-note">We'll only contact you about the Palm Club launch.</p>
+      </form>
+    </div>
+    <div class="cs-success" id="notify-success">
+      <div class="cs-success-icon">🌴</div>
+      <h3>You're on the list.</h3>
+      <p>We'll reach out the moment Palm Club Collection drops.</p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Coming Soon",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [{"name": "Coming Soon"}]
+}
+{% endschema %}
